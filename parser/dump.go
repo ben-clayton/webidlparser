@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"io"
 
-	"github.com/dennwc/webidl/ast"
+	"github.com/gowebapi/webidlparser/ast"
 	"github.com/kr/pretty"
 )
 

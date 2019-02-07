@@ -4,7 +4,7 @@
 package parser
 
 import (
-	"github.com/dennwc/webidl/ast"
+	"github.com/gowebapi/webidlparser/ast"
 )
 
 // Parse parses the given WebIDL source into a parse tree.
