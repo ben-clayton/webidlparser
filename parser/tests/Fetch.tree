@@ -1580,7 +1580,13 @@
             Iterable:  (*ast.Iterable)(nil),
         },
         &ast.Includes{
-            Base:   ast.Base{},
+            Base: ast.Base{
+                Start:    1715,
+                End:      0,
+                Line:     50,
+                Comments: nil,
+                Errors:   nil,
+            },
             Name:   "Request",
             Source: "Body",
         },
@@ -2956,7 +2962,13 @@
             Iterable:  (*ast.Iterable)(nil),
         },
         &ast.Includes{
-            Base:   ast.Base{},
+            Base: ast.Base{
+                Start:    3223,
+                End:      0,
+                Line:     91,
+                Comments: nil,
+                Errors:   nil,
+            },
             Name:   "Response",
             Source: "Body",
         },

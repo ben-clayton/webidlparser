@@ -235,7 +235,13 @@
             Iterable:  (*ast.Iterable)(nil),
         },
         &ast.Includes{
-            Base:   ast.Base{},
+            Base: ast.Base{
+                Start:    336,
+                End:      0,
+                Line:     10,
+                Comments: nil,
+                Errors:   nil,
+            },
             Name:   "ServiceWorker",
             Source: "AbstractWorker",
         },

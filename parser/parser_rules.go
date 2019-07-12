@@ -56,6 +56,7 @@ Loop:
 				impl := &ast.Includes{Name: name}
 				impl.Source = p.consumeIdentifier()
 				n.Declarations = append(n.Declarations, impl)
+				p.decorateStartRuneAndComments(impl, p.currentToken)
 				p.consume(tokenTypeSemicolon)
 				continue
 			}
