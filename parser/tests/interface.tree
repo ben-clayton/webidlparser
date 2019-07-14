@@ -22,7 +22,7 @@
             Annotations: nil,
             Members:     nil,
             CustomOps:   nil,
-            Iterable:    (*ast.Iterable)(nil),
+            Patterns:    nil,
         },
         &ast.Mixin{
             Base: ast.Base{
@@ -38,7 +38,7 @@
             Annotations: nil,
             Members:     nil,
             CustomOps:   nil,
-            Iterable:    (*ast.Iterable)(nil),
+            Patterns:    nil,
         },
         &ast.Interface{
             Base: ast.Base{
@@ -55,7 +55,7 @@
             Annotations: nil,
             Members:     nil,
             CustomOps:   nil,
-            Iterable:    (*ast.Iterable)(nil),
+            Patterns:    nil,
         },
     },
 }

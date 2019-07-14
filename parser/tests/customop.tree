@@ -73,7 +73,7 @@
                     Name: "jsonifier",
                 },
             },
-            Iterable: (*ast.Iterable)(nil),
+            Patterns: nil,
         },
     },
 }

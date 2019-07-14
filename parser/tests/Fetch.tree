@@ -481,33 +481,37 @@
                 },
             },
             CustomOps: nil,
-            Iterable:  &ast.Iterable{
-                Base: ast.Base{
-                    Start:    383,
-                    End:      406,
-                    Line:     11,
-                    Comments: nil,
-                    Errors:   nil,
-                },
-                Key: &ast.TypeName{
+            Patterns:  {
+                &ast.Pattern{
                     Base: ast.Base{
-                        Start:    384,
-                        End:      393,
+                        Start:    383,
+                        End:      406,
                         Line:     11,
                         Comments: nil,
                         Errors:   nil,
                     },
-                    Name: "ByteString",
-                },
-                Elem: &ast.TypeName{
-                    Base: ast.Base{
-                        Start:    396,
-                        End:      405,
-                        Line:     11,
-                        Comments: nil,
-                        Errors:   nil,
+                    Type: 1,
+                    Key:  &ast.TypeName{
+                        Base: ast.Base{
+                            Start:    384,
+                            End:      393,
+                            Line:     11,
+                            Comments: nil,
+                            Errors:   nil,
+                        },
+                        Name: "ByteString",
                     },
-                    Name: "ByteString",
+                    Elem: &ast.TypeName{
+                        Base: ast.Base{
+                            Start:    396,
+                            End:      405,
+                            Line:     11,
+                            Comments: nil,
+                            Errors:   nil,
+                        },
+                        Name: "ByteString",
+                    },
+                    ReadOnly: false,
                 },
             },
         },
@@ -949,7 +953,7 @@
                 },
             },
             CustomOps: nil,
-            Iterable:  (*ast.Iterable)(nil),
+            Patterns:  nil,
         },
         &ast.Typedef{
             Base: ast.Base{
@@ -1577,7 +1581,7 @@
                 },
             },
             CustomOps: nil,
-            Iterable:  (*ast.Iterable)(nil),
+            Patterns:  nil,
         },
         &ast.Includes{
             Base: ast.Base{
@@ -2959,7 +2963,7 @@
                 },
             },
             CustomOps: nil,
-            Iterable:  (*ast.Iterable)(nil),
+            Patterns:  nil,
         },
         &ast.Includes{
             Base: ast.Base{
@@ -3284,7 +3288,7 @@
                 },
             },
             CustomOps: nil,
-            Iterable:  (*ast.Iterable)(nil),
+            Patterns:  nil,
         },
     },
 }

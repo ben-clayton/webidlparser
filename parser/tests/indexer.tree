@@ -155,7 +155,7 @@
                 },
             },
             CustomOps: nil,
-            Iterable:  (*ast.Iterable)(nil),
+            Patterns:  nil,
         },
     },
 }

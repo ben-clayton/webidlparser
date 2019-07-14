@@ -43,7 +43,7 @@ type Interface struct {
 	Annotations []*Annotation
 	Members     []InterfaceMember
 	CustomOps   []*CustomOp
-	Iterable    *Iterable
+	Patterns    []*Pattern
 }
 
 func (*Interface) isDecl() {}
@@ -61,7 +61,7 @@ type Mixin struct {
 	Annotations []*Annotation
 	Members     []MixinMember
 	CustomOps   []*CustomOp
-	Iterable    *Iterable
+	Patterns    []*Pattern
 }
 
 func (*Mixin) isDecl() {}
@@ -150,11 +150,22 @@ type TypeName struct {
 
 func (*TypeName) isType() {}
 
-type Iterable struct {
+type Pattern struct {
 	Base
-	Key  Type
-	Elem Type
+	Type     PatternType
+	Key      Type
+	Elem     Type
+	ReadOnly bool
 }
+
+type PatternType int
+
+const (
+	Iterable PatternType = iota + 1
+	AsyncIterable
+	Maplike
+	Setlike
+)
 
 type Callback struct {
 	Base

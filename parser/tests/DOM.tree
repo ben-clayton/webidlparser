@@ -914,7 +914,7 @@
                 },
             },
             CustomOps: nil,
-            Iterable:  (*ast.Iterable)(nil),
+            Patterns:  nil,
         },
         &ast.Dictionary{
             Base: ast.Base{
@@ -1103,7 +1103,7 @@
                 },
             },
             CustomOps: nil,
-            Iterable:  (*ast.Iterable)(nil),
+            Patterns:  nil,
         },
         &ast.Interface{
             Base: ast.Base{
@@ -1377,7 +1377,7 @@
                 },
             },
             CustomOps: nil,
-            Iterable:  (*ast.Iterable)(nil),
+            Patterns:  nil,
         },
         &ast.Dictionary{
             Base: ast.Base{
@@ -1792,7 +1792,7 @@
                 },
             },
             CustomOps: nil,
-            Iterable:  (*ast.Iterable)(nil),
+            Patterns:  nil,
         },
         &ast.Interface{
             Base: ast.Base{
@@ -1864,7 +1864,7 @@
                 },
             },
             CustomOps: nil,
-            Iterable:  (*ast.Iterable)(nil),
+            Patterns:  nil,
         },
         &ast.Dictionary{
             Base: ast.Base{
@@ -2125,7 +2125,7 @@
                 },
             },
             CustomOps: nil,
-            Iterable:  (*ast.Iterable)(nil),
+            Patterns:  nil,
         },
         &ast.Interface{
             Base: ast.Base{
@@ -2215,7 +2215,7 @@
                 },
             },
             CustomOps: nil,
-            Iterable:  (*ast.Iterable)(nil),
+            Patterns:  nil,
         },
         &ast.Mixin{
             Base: ast.Base{
@@ -2295,7 +2295,7 @@
                 },
             },
             CustomOps: nil,
-            Iterable:  (*ast.Iterable)(nil),
+            Patterns:  nil,
         },
         &ast.Includes{
             Base: ast.Base{
@@ -2333,7 +2333,7 @@
             Annotations: nil,
             Members:     nil,
             CustomOps:   nil,
-            Iterable:    (*ast.Iterable)(nil),
+            Patterns:    nil,
         },
         &ast.Includes{
             Base: ast.Base{
@@ -2855,7 +2855,7 @@
                 },
             },
             CustomOps: nil,
-            Iterable:  (*ast.Iterable)(nil),
+            Patterns:  nil,
         },
         &ast.Includes{
             Base: ast.Base{
@@ -2981,7 +2981,7 @@
                 },
             },
             CustomOps: nil,
-            Iterable:  (*ast.Iterable)(nil),
+            Patterns:  nil,
         },
         &ast.Includes{
             Base: ast.Base{
@@ -3382,7 +3382,7 @@
                 },
             },
             CustomOps: nil,
-            Iterable:  (*ast.Iterable)(nil),
+            Patterns:  nil,
         },
         &ast.Includes{
             Base: ast.Base{
@@ -3470,7 +3470,7 @@
                 },
             },
             CustomOps: nil,
-            Iterable:  (*ast.Iterable)(nil),
+            Patterns:  nil,
         },
         &ast.Includes{
             Base: ast.Base{
@@ -3616,24 +3616,28 @@
                 },
             },
             CustomOps: nil,
-            Iterable:  &ast.Iterable{
-                Base: ast.Base{
-                    Start:    4446,
-                    End:      4451,
-                    Line:     145,
-                    Comments: nil,
-                    Errors:   nil,
-                },
-                Key:  nil,
-                Elem: &ast.TypeName{
+            Patterns:  {
+                &ast.Pattern{
                     Base: ast.Base{
-                        Start:    4447,
-                        End:      4450,
+                        Start:    4446,
+                        End:      4451,
                         Line:     145,
                         Comments: nil,
                         Errors:   nil,
                     },
-                    Name: "Node",
+                    Type: 1,
+                    Key:  nil,
+                    Elem: &ast.TypeName{
+                        Base: ast.Base{
+                            Start:    4447,
+                            End:      4450,
+                            Line:     145,
+                            Comments: nil,
+                            Errors:   nil,
+                        },
+                        Name: "Node",
+                    },
+                    ReadOnly: false,
                 },
             },
         },
@@ -3835,7 +3839,7 @@
                 },
             },
             CustomOps: nil,
-            Iterable:  (*ast.Iterable)(nil),
+            Patterns:  nil,
         },
         &ast.Interface{
             Base: ast.Base{
@@ -4050,7 +4054,7 @@
                 },
             },
             CustomOps: nil,
-            Iterable:  (*ast.Iterable)(nil),
+            Patterns:  nil,
         },
         &ast.Callback{
             Base: ast.Base{
@@ -4754,7 +4758,7 @@
                 },
             },
             CustomOps: nil,
-            Iterable:  (*ast.Iterable)(nil),
+            Patterns:  nil,
         },
         &ast.Interface{
             Base: ast.Base{
@@ -6994,7 +6998,7 @@
                 },
             },
             CustomOps: nil,
-            Iterable:  (*ast.Iterable)(nil),
+            Patterns:  nil,
         },
         &ast.Dictionary{
             Base: ast.Base{
@@ -9010,7 +9014,7 @@
                 },
             },
             CustomOps: nil,
-            Iterable:  (*ast.Iterable)(nil),
+            Patterns:  nil,
         },
         &ast.Interface{
             Base: ast.Base{
@@ -9041,7 +9045,7 @@
             },
             Members:   nil,
             CustomOps: nil,
-            Iterable:  (*ast.Iterable)(nil),
+            Patterns:  nil,
         },
         &ast.Dictionary{
             Base: ast.Base{
@@ -9487,7 +9491,7 @@
                 },
             },
             CustomOps: nil,
-            Iterable:  (*ast.Iterable)(nil),
+            Patterns:  nil,
         },
         &ast.Interface{
             Base: ast.Base{
@@ -9606,7 +9610,7 @@
                 },
             },
             CustomOps: nil,
-            Iterable:  (*ast.Iterable)(nil),
+            Patterns:  nil,
         },
         &ast.Interface{
             Base: ast.Base{
@@ -9650,7 +9654,7 @@
             },
             Members:   nil,
             CustomOps: nil,
-            Iterable:  (*ast.Iterable)(nil),
+            Patterns:  nil,
         },
         &ast.Interface{
             Base: ast.Base{
@@ -9740,7 +9744,7 @@
                 },
             },
             CustomOps: nil,
-            Iterable:  (*ast.Iterable)(nil),
+            Patterns:  nil,
         },
         &ast.Enum{
             Base: ast.Base{
@@ -12043,7 +12047,7 @@
                 },
             },
             CustomOps: nil,
-            Iterable:  (*ast.Iterable)(nil),
+            Patterns:  nil,
         },
         &ast.Dictionary{
             Base: ast.Base{
@@ -12706,7 +12710,7 @@
                 },
             },
             CustomOps: nil,
-            Iterable:  (*ast.Iterable)(nil),
+            Patterns:  nil,
         },
         &ast.Interface{
             Base: ast.Base{
@@ -12982,7 +12986,7 @@
                 },
             },
             CustomOps: nil,
-            Iterable:  (*ast.Iterable)(nil),
+            Patterns:  nil,
         },
         &ast.Interface{
             Base: ast.Base{
@@ -13476,7 +13480,7 @@
                 },
             },
             CustomOps: nil,
-            Iterable:  (*ast.Iterable)(nil),
+            Patterns:  nil,
         },
         &ast.Interface{
             Base: ast.Base{
@@ -13652,7 +13656,7 @@
                 },
             },
             CustomOps: nil,
-            Iterable:  (*ast.Iterable)(nil),
+            Patterns:  nil,
         },
         &ast.Interface{
             Base: ast.Base{
@@ -13683,7 +13687,7 @@
             },
             Members:   nil,
             CustomOps: nil,
-            Iterable:  (*ast.Iterable)(nil),
+            Patterns:  nil,
         },
         &ast.Interface{
             Base: ast.Base{
@@ -13744,7 +13748,7 @@
                 },
             },
             CustomOps: nil,
-            Iterable:  (*ast.Iterable)(nil),
+            Patterns:  nil,
         },
         &ast.Interface{
             Base: ast.Base{
@@ -13822,7 +13826,7 @@
             },
             Members:   nil,
             CustomOps: nil,
-            Iterable:  (*ast.Iterable)(nil),
+            Patterns:  nil,
         },
         &ast.Interface{
             Base: ast.Base{
@@ -13999,7 +14003,7 @@
                 },
             },
             CustomOps: nil,
-            Iterable:  (*ast.Iterable)(nil),
+            Patterns:  nil,
         },
         &ast.Interface{
             Base: ast.Base{
@@ -14030,7 +14034,7 @@
             },
             Members:   nil,
             CustomOps: nil,
-            Iterable:  (*ast.Iterable)(nil),
+            Patterns:  nil,
         },
         &ast.Interface{
             Base: ast.Base{
@@ -15461,7 +15465,7 @@
                     Name: "stringifier",
                 },
             },
-            Iterable: (*ast.Iterable)(nil),
+            Patterns: nil,
         },
         &ast.Interface{
             Base: ast.Base{
@@ -15766,7 +15770,7 @@
                 },
             },
             CustomOps: nil,
-            Iterable:  (*ast.Iterable)(nil),
+            Patterns:  nil,
         },
         &ast.Interface{
             Base: ast.Base{
@@ -16203,7 +16207,7 @@
                 },
             },
             CustomOps: nil,
-            Iterable:  (*ast.Iterable)(nil),
+            Patterns:  nil,
         },
         &ast.Interface{
             Base: ast.Base{
@@ -16897,7 +16901,7 @@
                 },
             },
             CustomOps: nil,
-            Iterable:  (*ast.Iterable)(nil),
+            Patterns:  nil,
         },
         &ast.Interface{
             Base: ast.Base{
@@ -17492,24 +17496,28 @@
                 },
             },
             CustomOps: nil,
-            Iterable:  &ast.Iterable{
-                Base: ast.Base{
-                    Start:    18947,
-                    End:      18957,
-                    Line:     553,
-                    Comments: nil,
-                    Errors:   nil,
-                },
-                Key:  nil,
-                Elem: &ast.TypeName{
+            Patterns:  {
+                &ast.Pattern{
                     Base: ast.Base{
-                        Start:    18948,
-                        End:      18956,
+                        Start:    18947,
+                        End:      18957,
                         Line:     553,
                         Comments: nil,
                         Errors:   nil,
                     },
-                    Name: "DOMString",
+                    Type: 1,
+                    Key:  nil,
+                    Elem: &ast.TypeName{
+                        Base: ast.Base{
+                            Start:    18948,
+                            End:      18956,
+                            Line:     553,
+                            Comments: nil,
+                            Errors:   nil,
+                        },
+                        Name: "DOMString",
+                    },
+                    ReadOnly: false,
                 },
             },
         },

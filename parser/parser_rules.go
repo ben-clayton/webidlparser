@@ -116,24 +116,11 @@ loop:
 			}
 
 			continue
-		} else if p.isIdentifier("iterable") {
-			p.consume(tokenTypeIdentifier)
-			iter := &ast.Iterable{}
-			finish := p.node(iter)
-			p.consume(tokenTypeLeftTri)
-			iter.Elem = p.consumeType()
-			if _, ok := p.tryConsume(tokenTypeComma); ok {
-				iter.Key = iter.Elem
-				iter.Elem = p.consumeType()
-			}
-			p.consume(tokenTypeRightTri)
-			finish()
-			n.Iterable = iter
-			_, ok := p.consume(tokenTypeSemicolon)
-			if !ok {
+		} else if pattern, continueLoop := p.tryConsumePattern(); pattern != nil {
+			n.Patterns = append(n.Patterns, pattern)
+			if !continueLoop {
 				break loop
 			}
-
 			continue
 		}
 		n.Members = append(n.Members, p.consumeInterfaceMember())
@@ -189,20 +176,13 @@ loop:
 			}
 
 			continue
-		} else if p.isIdentifier("iterable") {
-			p.consume(tokenTypeIdentifier)
-			iter := &ast.Iterable{}
-			finish := p.node(iter)
-			p.consume(tokenTypeLeftTri)
-			iter.Elem = p.consumeType()
-			p.consume(tokenTypeRightTri)
-			finish()
-			n.Iterable = iter
-			_, ok := p.consume(tokenTypeSemicolon)
-			if !ok {
+		} else if pattern, continueLoop := p.tryConsumePattern(); pattern != nil {
+			// An parser extension. WebIDL doesn't have support for
+			// iterable, maplike and setlike in mixin.
+			n.Patterns = append(n.Patterns, pattern)
+			if !continueLoop {
 				break loop
 			}
-
 			continue
 		}
 		n.Members = append(n.Members, p.consumeMixinMember())
@@ -666,4 +646,65 @@ func (p *sourceParser) consumeIncludes() *ast.Includes {
 	// semicolon
 	p.consume(tokenTypeSemicolon)
 	return n
+}
+
+func (p *sourceParser) tryConsumePattern() (pattern *ast.Pattern, continueLoop bool) {
+	async := p.isIdentifier("async")
+	if p.isIdentifier("iterable") || async && p.isNextIdentifier("iterable") {
+		pattern = &ast.Pattern{Type: ast.Iterable}
+		if async {
+			p.consumeKeyword("async")
+			pattern.Type = ast.AsyncIterable
+		}
+		p.consume(tokenTypeIdentifier)
+		finish := p.node(pattern)
+		p.consume(tokenTypeLeftTri)
+		pattern.Elem = p.consumeType()
+		if _, ok := p.tryConsume(tokenTypeComma); ok {
+			pattern.Key = pattern.Elem
+			pattern.Elem = p.consumeType()
+		}
+		p.consume(tokenTypeRightTri)
+		finish()
+		_, ok := p.consume(tokenTypeSemicolon)
+		continueLoop = ok
+		return
+	}
+	readOnly := p.isIdentifier("readonly")
+	if p.isIdentifier("maplike") || readOnly && p.isNextIdentifier("maplike") {
+		if readOnly {
+			p.consumeKeyword("readonly")
+		}
+		p.consume(tokenTypeIdentifier)
+		pattern = &ast.Pattern{Type: ast.Maplike, ReadOnly: readOnly}
+		finish := p.node(pattern)
+		p.consume(tokenTypeLeftTri)
+		pattern.Key = p.consumeType()
+		p.consume(tokenTypeComma)
+		pattern.Elem = p.consumeType()
+		p.consume(tokenTypeRightTri)
+		finish()
+		_, ok := p.consume(tokenTypeSemicolon)
+		continueLoop = ok
+		return
+	}
+
+	if p.isIdentifier("setlike") || readOnly && p.isNextIdentifier("setlike") {
+		if readOnly {
+			p.consumeKeyword("readonly")
+		}
+		p.consume(tokenTypeIdentifier)
+		pattern = &ast.Pattern{Type: ast.Setlike, ReadOnly: readOnly}
+		finish := p.node(pattern)
+		p.consume(tokenTypeLeftTri)
+		pattern.Elem = p.consumeType()
+		p.consume(tokenTypeRightTri)
+		finish()
+		_, ok := p.consume(tokenTypeSemicolon)
+		continueLoop = ok
+		return
+	}
+
+	// no pattern found
+	return nil, false
 }

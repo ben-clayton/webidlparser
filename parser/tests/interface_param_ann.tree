@@ -407,7 +407,7 @@
                 },
             },
             CustomOps: nil,
-            Iterable:  (*ast.Iterable)(nil),
+            Patterns:  nil,
         },
         &ast.Interface{
             Base: ast.Base{
@@ -996,7 +996,7 @@
                 },
             },
             CustomOps: nil,
-            Iterable:  (*ast.Iterable)(nil),
+            Patterns:  nil,
         },
     },
 }

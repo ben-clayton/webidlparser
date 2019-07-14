@@ -17,7 +17,7 @@ type Visitor interface {
 	Member(value *Member) bool
 	CustomOp(value *CustomOp)
 	TypeName(value *TypeName)
-	Iterable(value *Iterable)
+	Pattern(value *Pattern)
 	Callback(value *Callback) bool
 	Enum(value *Enum) bool
 	Typedef(value *Typedef) bool
@@ -58,8 +58,8 @@ func Accept(node Node, v Visitor) {
 		for _, c := range n.CustomOps {
 			Accept(c, v)
 		}
-		if n.Iterable != nil {
-			Accept(n.Iterable, v)
+		for _, p := range n.Patterns {
+			Accept(p, v)
 		}
 	case *Mixin:
 		if !v.Mixin(n) {
@@ -74,8 +74,8 @@ func Accept(node Node, v Visitor) {
 		for _, c := range n.CustomOps {
 			Accept(c, v)
 		}
-		if n.Iterable != nil {
-			Accept(n.Iterable, v)
+		for _, p := range n.Patterns {
+			Accept(p, v)
 		}
 	case *Dictionary:
 		if !v.Dictionary(n) {
@@ -109,8 +109,8 @@ func Accept(node Node, v Visitor) {
 		v.Includes(n)
 	case *CustomOp:
 		v.CustomOp(n)
-	case *Iterable:
-		v.Iterable(n)
+	case *Pattern:
+		v.Pattern(n)
 	case *Callback:
 		if !v.Callback(n) {
 			break
@@ -257,7 +257,7 @@ type EmptyVisitor struct {
 	ScanMember           bool
 	ScanCustomOp         bool
 	ScanTypeName         bool
-	ScanIterable         bool
+	ScanPattern          bool
 	ScanCallback         bool
 	ScanEnum             bool
 	ScanTypedef          bool
@@ -323,8 +323,8 @@ func (t *EmptyVisitor) TypeName(value *TypeName) {
 	// return !t.UseFlags || (t.UseFlags && t.ScanTypeName)
 }
 
-func (t *EmptyVisitor) Iterable(value *Iterable) {
-	// return !t.UseFlags || (t.UseFlags && t.ScanIterable)
+func (t *EmptyVisitor) Pattern(value *Pattern) {
+	// return !t.UseFlags || (t.UseFlags && t.ScanPattern)
 }
 
 func (t *EmptyVisitor) Callback(value *Callback) bool {

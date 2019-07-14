@@ -66,7 +66,7 @@
                 },
             },
             CustomOps: nil,
-            Iterable:  (*ast.Iterable)(nil),
+            Patterns:  nil,
         },
         &ast.Interface{
             Base: ast.Base{
@@ -348,7 +348,7 @@
                 },
             },
             CustomOps: nil,
-            Iterable:  (*ast.Iterable)(nil),
+            Patterns:  nil,
         },
         &ast.Dictionary{
             Base: ast.Base{
@@ -595,7 +595,7 @@
                 },
             },
             CustomOps: nil,
-            Iterable:  (*ast.Iterable)(nil),
+            Patterns:  nil,
         },
         &ast.Interface{
             Base: ast.Base{
@@ -883,7 +883,7 @@
                 },
             },
             CustomOps: nil,
-            Iterable:  (*ast.Iterable)(nil),
+            Patterns:  nil,
         },
         &ast.Dictionary{
             Base: ast.Base{
@@ -1206,7 +1206,7 @@
                 },
             },
             CustomOps: nil,
-            Iterable:  (*ast.Iterable)(nil),
+            Patterns:  nil,
         },
         &ast.Interface{
             Base: ast.Base{
@@ -1309,7 +1309,7 @@
                 },
             },
             CustomOps: nil,
-            Iterable:  (*ast.Iterable)(nil),
+            Patterns:  nil,
         },
         &ast.Typedef{
             Base: ast.Base{
@@ -1540,7 +1540,7 @@
                 },
             },
             CustomOps: nil,
-            Iterable:  (*ast.Iterable)(nil),
+            Patterns:  nil,
         },
         &ast.Dictionary{
             Base: ast.Base{
@@ -1814,7 +1814,7 @@
                 },
             },
             CustomOps: nil,
-            Iterable:  (*ast.Iterable)(nil),
+            Patterns:  nil,
         },
         &ast.Enum{
             Base: ast.Base{

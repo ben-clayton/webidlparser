@@ -503,7 +503,7 @@
                 },
             },
             CustomOps: nil,
-            Iterable:  (*ast.Iterable)(nil),
+            Patterns:  nil,
         },
         &ast.Interface{
             Base: ast.Base{
@@ -1080,33 +1080,37 @@
                     Name: "stringifier",
                 },
             },
-            Iterable: &ast.Iterable{
-                Base: ast.Base{
-                    Start:    1078,
-                    End:      1099,
-                    Line:     33,
-                    Comments: nil,
-                    Errors:   nil,
-                },
-                Key: &ast.TypeName{
+            Patterns: {
+                &ast.Pattern{
                     Base: ast.Base{
-                        Start:    1079,
-                        End:      1087,
+                        Start:    1078,
+                        End:      1099,
                         Line:     33,
                         Comments: nil,
                         Errors:   nil,
                     },
-                    Name: "USVString",
-                },
-                Elem: &ast.TypeName{
-                    Base: ast.Base{
-                        Start:    1090,
-                        End:      1098,
-                        Line:     33,
-                        Comments: nil,
-                        Errors:   nil,
+                    Type: 1,
+                    Key:  &ast.TypeName{
+                        Base: ast.Base{
+                            Start:    1079,
+                            End:      1087,
+                            Line:     33,
+                            Comments: nil,
+                            Errors:   nil,
+                        },
+                        Name: "USVString",
                     },
-                    Name: "USVString",
+                    Elem: &ast.TypeName{
+                        Base: ast.Base{
+                            Start:    1090,
+                            End:      1098,
+                            Line:     33,
+                            Comments: nil,
+                            Errors:   nil,
+                        },
+                        Name: "USVString",
+                    },
+                    ReadOnly: false,
                 },
             },
         },
