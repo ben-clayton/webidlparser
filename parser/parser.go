@@ -9,7 +9,7 @@ package parser
 import (
 	"fmt"
 
-	"github.com/gowebapi/webidlparser/ast"
+	"github.com/ben-clayton/webidlparser/ast"
 )
 
 // tryConsumeIdentifier attempts to consume an expected identifier.

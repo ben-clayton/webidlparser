@@ -6,7 +6,7 @@
 
 package parser
 
-import "github.com/gowebapi/webidlparser/ast"
+import "github.com/ben-clayton/webidlparser/ast"
 
 type nodeStack struct {
 	top  *element
