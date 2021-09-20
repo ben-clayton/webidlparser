@@ -18,3 +18,8 @@ interface CharacterData : Node {
   void replaceData(unsigned long offset, unsigned long count, DOMString data);
   void postMessage(any message, optional sequence<object> transfer = []);
 };
+
+[Exposed=(Window, DedicatedWorker), SecureContext]
+interface GPURenderBundleEncoder {
+    GPURenderBundle finish(optional GPURenderBundleDescriptor descriptor = {});
+};

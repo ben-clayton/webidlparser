@@ -36,7 +36,7 @@ func (p *sourceParser) consumeIdentifier() string {
 func (p *sourceParser) consumeLiteral() ast.Literal {
 	base := &ast.Base{}
 	finish := p.node(base)
-	l, ok := p.consume(tokenTypeIdentifier, tokenTypeString, tokenTypeNumber, tokenTypeLeftBracket)
+	l, ok := p.consume(tokenTypeIdentifier, tokenTypeString, tokenTypeNumber, tokenTypeLeftBracket, tokenTypeLeftBrace)
 	if !ok {
 		p.emitError("Expected literal, found token %v", p.currentToken)
 		finish()
@@ -63,6 +63,10 @@ func (p *sourceParser) consumeLiteral() ast.Literal {
 		finish()
 		n.Base = *base
 		return n
+	case tokenTypeLeftBrace:
+		p.consume(tokenTypeRightBrace)
+		finish()
+		return &ast.DefaultDictionaryLiteral{Base: *base}
 	}
 	panic("unreachable")
 }

@@ -259,3 +259,9 @@ type SequenceLiteral struct {
 }
 
 func (*SequenceLiteral) isLiteral() {}
+
+type DefaultDictionaryLiteral struct {
+	Base
+}
+
+func (*DefaultDictionaryLiteral) isLiteral() {}
