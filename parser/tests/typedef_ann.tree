@@ -1,0 +1,47 @@
+&ast.File{
+    Base: ast.Base{
+        Start:    0,
+        End:      56,
+        Line:     0,
+        Comments: nil,
+        Errors:   nil,
+    },
+    Declarations: {
+        &ast.Typedef{
+            Base: ast.Base{
+                Start:    0,
+                End:      56,
+                Line:     1,
+                Comments: nil,
+                Errors:   nil,
+            },
+            Annotations:     nil,
+            TypeAnnotations: {
+                &ast.Annotation{
+                    Base: ast.Base{
+                        Start:    9,
+                        End:      20,
+                        Line:     1,
+                        Comments: nil,
+                        Errors:   nil,
+                    },
+                    Name:       "EnforceRange",
+                    Value:      "",
+                    Parameters: nil,
+                    Values:     nil,
+                },
+            },
+            Name: "GPUShaderStageFlags",
+            Type: &ast.TypeName{
+                Base: ast.Base{
+                    Start:    23,
+                    End:      35,
+                    Line:     1,
+                    Comments: nil,
+                    Errors:   nil,
+                },
+                Name: "unsigned long",
+            },
+        },
+    },
+}

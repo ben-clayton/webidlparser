@@ -187,9 +187,10 @@ func (*Enum) isDecl() {}
 
 type Typedef struct {
 	Base
-	Annotations []*Annotation
-	Name        string
-	Type        Type
+	Annotations     []*Annotation
+	TypeAnnotations []*Annotation
+	Name            string
+	Type            Type
 }
 
 func (*Typedef) isDecl() {}

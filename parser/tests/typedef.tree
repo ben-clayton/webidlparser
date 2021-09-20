@@ -15,9 +15,10 @@
                 Comments: nil,
                 Errors:   nil,
             },
-            Annotations: nil,
-            Name:        "HeadersInit",
-            Type:        &ast.UnionType{
+            Annotations:     nil,
+            TypeAnnotations: nil,
+            Name:            "HeadersInit",
+            Type:            &ast.UnionType{
                 Base: ast.Base{
                     Start:    8,
                     End:      73,

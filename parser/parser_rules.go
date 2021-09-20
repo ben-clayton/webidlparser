@@ -238,6 +238,7 @@ func (p *sourceParser) consumeTypedef(ann []*ast.Annotation, base *ast.Base, fin
 		n.Base = *base
 	}()
 	p.consumeKeyword("typedef")
+	n.TypeAnnotations = p.tryConsumeAnnotations()
 	n.Type = p.consumeType()
 	n.Name = p.consumeIdentifier()
 	p.consume(tokenTypeSemicolon)

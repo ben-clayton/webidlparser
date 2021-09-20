@@ -15,9 +15,10 @@
                 Comments: nil,
                 Errors:   nil,
             },
-            Annotations: nil,
-            Name:        "HeadersInit",
-            Type:        &ast.UnionType{
+            Annotations:     nil,
+            TypeAnnotations: nil,
+            Name:            "HeadersInit",
+            Type:            &ast.UnionType{
                 Base: ast.Base{
                     Start:    8,
                     End:      73,
@@ -523,9 +524,10 @@
                 Comments: nil,
                 Errors:   nil,
             },
-            Annotations: nil,
-            Name:        "BodyInit",
-            Type:        &ast.UnionType{
+            Annotations:     nil,
+            TypeAnnotations: nil,
+            Name:            "BodyInit",
+            Type:            &ast.UnionType{
                 Base: ast.Base{
                     Start:    421,
                     End:      504,
@@ -963,9 +965,10 @@
                 Comments: nil,
                 Errors:   nil,
             },
-            Annotations: nil,
-            Name:        "RequestInfo",
-            Type:        &ast.UnionType{
+            Annotations:     nil,
+            TypeAnnotations: nil,
+            Name:            "RequestInfo",
+            Type:            &ast.UnionType{
                 Base: ast.Base{
                     Start:    840,
                     End:      861,

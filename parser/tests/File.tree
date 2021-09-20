@@ -372,9 +372,10 @@
                 Comments: nil,
                 Errors:   nil,
             },
-            Annotations: nil,
-            Name:        "BlobPart",
-            Type:        &ast.UnionType{
+            Annotations:     nil,
+            TypeAnnotations: nil,
+            Name:            "BlobPart",
+            Type:            &ast.UnionType{
                 Base: ast.Base{
                     Start:    486,
                     End:      520,
