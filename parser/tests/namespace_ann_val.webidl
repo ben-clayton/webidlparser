@@ -1,0 +1,2 @@
+[CoolAnnotation=SomeName]
+namespace SomeNamespace {};

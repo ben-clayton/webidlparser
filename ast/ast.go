@@ -33,6 +33,21 @@ type File struct {
 	Declarations []Decl
 }
 
+// namespace Foo { ... }
+type Namespace struct {
+	Base
+	Partial     bool
+	Name        string
+	Annotations []*Annotation
+	Members     []InterfaceMember
+}
+
+func (*Namespace) isDecl() {}
+
+type NamespaceMember interface {
+	isNamespaceMember()
+}
+
 // interface Foo { ... }
 type Interface struct {
 	Base
@@ -136,6 +151,7 @@ type Member struct {
 }
 
 func (*Member) isInterfaceMember() {}
+func (*Member) isNamespaceMember() {}
 func (*Member) isMixinMember()     {}
 
 type CustomOp struct {

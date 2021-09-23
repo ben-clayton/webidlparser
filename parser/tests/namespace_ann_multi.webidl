@@ -1,0 +1,3 @@
+[Global]
+[Constructor()]
+namespace SomeNamespace {};

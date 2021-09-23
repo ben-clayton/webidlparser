@@ -40,8 +40,8 @@ Loop:
 		switch {
 		case p.isToken(tokenTypeLeftBracket) || p.isIdentifier("interface") ||
 			p.isIdentifier("partial") || p.isIdentifier("callback") ||
-			p.isIdentifier("dictionary") || p.isIdentifier("enum") ||
-			p.isIdentifier("typedef"):
+			p.isIdentifier("namespace") || p.isIdentifier("dictionary") ||
+			p.isIdentifier("enum") || p.isIdentifier("typedef"):
 			n.Declarations = append(n.Declarations, p.consumeDeclaration())
 			continue
 		case p.isToken(tokenTypeIdentifier):
@@ -64,6 +64,37 @@ Loop:
 		p.emitError("Unexpected token at root level: %v", p.currentToken)
 		break Loop
 	}
+
+	return n
+}
+
+func (p *sourceParser) consumeNamespace(ann []*ast.Annotation, finish func()) *ast.Namespace {
+	n := &ast.Namespace{Annotations: ann}
+	defer finish()
+
+	n.Partial = p.tryConsumeKeyword("partial")
+	p.consumeKeyword("namespace")
+	n.Name = p.consumeIdentifier()
+
+	// {
+	p.consume(tokenTypeLeftBrace)
+
+	for {
+		if p.isToken(tokenTypeRightBrace) {
+			break
+		}
+
+		n.Members = append(n.Members, p.consumeInterfaceMember())
+
+		if _, ok := p.consume(tokenTypeSemicolon); !ok {
+			p.emitError("Expected semicolon, got: %v", p.currentToken)
+			break
+		}
+	}
+
+	// };
+	p.consume(tokenTypeRightBrace)
+	p.consume(tokenTypeSemicolon)
 
 	return n
 }
@@ -297,14 +328,20 @@ func (p *sourceParser) consumeDeclaration() ast.Decl {
 		p.consume(tokenTypeSemicolon)
 		finish()
 		return &ast.Callback{Base: *base, Name: name, Return: ret, Parameters: par}
+	case p.isIdentifier("namespace"):
+		return p.consumeNamespace(ann, finish)
 	case p.isIdentifier("interface"):
 		return p.consumeInterfaceOrMixin(ann, base, finish)
 	case p.isIdentifier("dictionary"):
 		return p.consumeDictionary(ann, base, finish)
 	case p.isIdentifier("partial"):
+		if p.isNextIdentifier("namespace") {
+			return p.consumeNamespace(ann, finish)
+		}
 		if p.isNextIdentifier("interface") {
 			return p.consumeInterfaceOrMixin(ann, base, finish)
-		} else if p.isNextIdentifier("dictionary") {
+		}
+		if p.isNextIdentifier("dictionary") {
 			return p.consumeDictionary(ann, base, finish)
 		}
 	}
